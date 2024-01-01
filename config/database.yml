@@ -1,0 +1,13 @@
+# config/database.yml
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  username: arangchoi
+  password: Aghfkddl95!
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+e
+development:
+  <<: *default
+  database: rails_tutorial_development
