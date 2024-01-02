@@ -1,0 +1,35 @@
+<!-- app/views/users/index.html.erb -->
+
+<%= render 'layouts/top' %>
+
+<div class="user-table-container">
+    <% if @users.empty? %>
+        <p>등록된 유저가 없습니다.</p>
+    <% else %>    
+        <table class="user-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @users.each do |user| %>
+                    <tr>
+                        <td><%= user.id %></td>
+                        <td><%= user.name %></td>
+                        <td><%= user.email %></td>
+                        <td>
+                            <%= link_to '更新', edit_user_path(user), class: 'action-button' %>
+                            <%= button_to '削除', user_path(user), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'action-button' %>
+                        </td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    <% end %>
+</div>
+
+<%= render 'layouts/bottom' %>

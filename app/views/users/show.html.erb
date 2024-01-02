@@ -1,0 +1,21 @@
+<!-- app/views/users/show.html.erb -->
+<h2>Show Page</h2>
+<h1>User Details</h1>
+
+<% if flash[:notice] %>
+    <p class="notice"><%= flash[:notice] %></p>
+<% end %>
+<p>
+    <strong>ID: </strong>
+    <%= @user.id %><br>
+</p>
+<p>
+    <strong>Name: </strong>
+    <%= @user.name %><br>
+</p>
+<p>
+    <strong>Email: </strong>
+    <%= @user.email %>
+</p>
+
+<%= link_to 'ログアウト', logout_path, method: :delete %>
