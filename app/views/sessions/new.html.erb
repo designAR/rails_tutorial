@@ -1,0 +1,15 @@
+<!-- app/views/sessions/new.html.erb -->
+
+<%= render 'layouts/top' %>
+
+  <%= form_with(url: login_path, method: :post) do |form| %>
+    <%= form.label :email %>
+    <%= form.email_field :email %><br>
+
+    <%= form.label :password %>
+    <%= form.password_field :password %><br>
+
+    <%= form.submit "Login" %>
+  <% end %>
+
+<%= render 'layouts/bottom' %>

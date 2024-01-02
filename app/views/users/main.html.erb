@@ -1,0 +1,18 @@
+<!-- main.html.erb -->
+<%= render 'layouts/top' %>
+<% if current_user %>
+  <p>現在Loginしているユーザー : <%= current_user.name %></p>
+<% else %>
+
+<% end %>
+
+<ul>
+  <li><%= link_to 'User List', users_path %></li>
+  <% unless current_user %>
+    <li><%= link_to 'Sign up', new_user_path %></li>
+    <li><%= link_to 'Login', login_path %></li> <!-- 회원파트로 이동 -->
+  <% else %>
+    <li><%= link_to 'Logout', logout_path, method: :delete %></li> <!-- 회원파트로 이동 -->
+  <% end %>
+</ul>
+<%= render 'layouts/bottom' %>
